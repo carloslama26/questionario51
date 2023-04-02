@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Questionário</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Questionário</h1>
+
+  <div id="pergunta1">
+    <h2>Qual a capital dos Estados Unidos?</h2>
+    <label><input type="radio" name="resposta1" value="Washington, D.C.">Washington, D.C.</label><br>
+    <label><input type="radio" name="resposta1" value="Nova Iorque">Nova Iorque</label><br>
+    <label><input type="radio" name="resposta1" value="Los Angeles">Los Angeles</label><br>
+    <button onclick="verificarResposta(1)">Responder</button>
+    <p id="mensagem1"></p>
+  </div>
+
+  <div id="pergunta2">
+    <h2>Qual a capital da Austrália?</h2>
+    <label><input type="radio" name="resposta2" value="Sydney">Sydney</label><br>
+    <label><input type="radio" name="resposta2" value="Melbourne">Melbourne</label><br>
+    <label><input type="radio" name="resposta2" value="Canberra">Canberra</label><br>
+    <button onclick="verificarResposta(2)">Responder</button>
+    <p id="mensagem2"></p>
+  </div>
+
+  <div id="pergunta3">
+    <h2>Qual a capital do Brasil?</h2>
+    <label><input type="radio" name="resposta3" value="Porto Alegre">Porto Alegre</label><br>
+    <label><input type="radio" name="resposta3" value="Rio de Janeiro">Rio de Janeiro</label><br>
+    <label><input type="radio" name="resposta3" value="Brasília">Brasília</label><br>
+    <button onclick="verificarResposta(3)">Responder</button>
+    <p id="mensagem3"></p>
+  </div>
+
+  <script>
+    // Verificar a resposta quando o usuário clicar no botão
+    function verificarResposta(perguntaAtual) {
+      var escolha = document.querySelector('input[name="resposta' + perguntaAtual + '"]:checked').value;
+      if (escolha == perguntas[perguntaAtual-1].respostaCorreta) {
+        document.getElementById("mensagem" + perguntaAtual).innerHTML = "Você acertou!";
+      } else {
+        document.getElementById("mensagem" + perguntaAtual).innerHTML = "Você errou. A resposta correta é: " + perguntas[perguntaAtual-1].respostaCorreta;
+      }
+    }
+
+    var perguntas = [
+      {
+        pergunta: "Qual a capital dos Estados Unidos?",
+        respostaCorreta: "Washington, D.C."
+      },
+      {
+        pergunta: "Qual a capital da Austrália?",
+        respostaCorreta: "Canberra"
+      },
+      {
+        pergunta: "Qual a capital do Brasil?",
+        respostaCorreta: "Brasília"
+      }
+    ];
+  </script>
+</body>
+</html>
